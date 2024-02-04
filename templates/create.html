@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Message</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="form-container">
+    {% if message %}
+    <h2>Message Created Successfully!</h2>
+    <p><strong>Message:</strong> {{ message.content }}</p>
+    <p><strong>PIN:</strong> {{ message.pin }}</p>
+    <a href="/">Home</a> | <a href="/create">Create Another Message</a> | <a href="/view">View Messages</a>
+    {% else %}
+    <h2>Welcome! What would you like to do?</h2>
+    <div class="options">
+        <a href="/" class="button">Home</a>
+        <a href="/create" class="button">Create Message</a>
+        <a href="/view" class="button">View Messages</a>
+    </div>
+    <form action="/create" method="POST">
+        <h2>Create a New Message</h2>
+        <div class="form-field">
+            <input type="text" name="message" placeholder="Enter your message..." required>
+        </div>
+        <div class="form-field">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    {% endif %}
+</div>
+
+</body>
+</html>

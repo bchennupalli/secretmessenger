@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Created</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Message Created Successfully!</h2>
+    <div class="message-display">
+        <p><strong>Message:</strong> {{ message.content }}</p>
+        <p><strong>PIN:</strong> {{ message.pin }}</p>
+    </div>
+    <div class="navigation-links">
+        <a href="/create">Create Another Message</a> | <a href="/view">View Messages</a>
+    </div>
+</div>
+
+</body>
+</html>

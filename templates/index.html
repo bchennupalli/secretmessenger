@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Welcome! What would you like to do?</h2>
+    <div class="options">
+        <a href="/" class="button">Home</a>
+        <a href="/create" class="button">Create Message</a>
+        <a href="/view" class="button">View Messages</a>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Message</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="form-container">
+    <h2>View Message</h2>
+    <div class="options">
+        <a href="/" class="button">Home</a>
+        <a href="/create" class="button">Create Message</a>
+        <a href="/view" class="button">View Messages</a>
+    </div>
+    <form action="/view" method="POST">
+        <div class="form-field">
+            <label for="pin">Enter PIN:</label>
+            <input type="text" id="pin" name="pin" placeholder="8-digit PIN" required>
+        </div>
+        <div class="form-field">
+            <input type="submit" value="View Message">
+        </div>
+    </form>
+    {% if message %}
+        <div class="message-display">
+            <p><strong>Message:</strong> {{ message.content }}</p>
+            <p><strong>PIN:</strong> {{ message.pin }}</p>
+        </div>
+    {% else %}
+        {% if request.method == 'POST' %}
+        <p>No message found for the provided PIN.</p>
+        {% endif %}
+    {% endif %}
+</div>
+
+</body>
+</html>
